@@ -1,0 +1,21 @@
+////CONTAINER////
+.container {
+  max-width: 120rem;
+  min-height: 50rem;
+  background-color: orange;
+  margin: 8rem auto;
+  box-shadow: $shadow-dark;
+  display: flex;
+}
+
+////SIDEBAR////
+.sidebar {
+  flex: 0 0 30%;
+  background-color: darkblue;
+}
+
+////MAP////
+.map {
+  flex: 1;
+  background-color: grey;
+}

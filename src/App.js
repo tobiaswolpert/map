@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./sass/main.scss";
+import Sidebar from "./components/sidebar";
+import Map from "./components/map";
+import { useEffect, useState } from "react";
+import geo from "./components/utils";
 
 function App() {
+  const [location, setLocation] = useState();
+
+  useEffect(() => {
+    const fetchGeo = async () => {
+      const coords = await geo();
+      setLocation(coords);
+      console.log(coords);
+    };
+
+    fetchGeo();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {location ? (
+        <div>
+          {location.latitude}
+          {location.longitude}
+        </div>
+      ) : null}
+      <div className="container">
+        <Sidebar />
+        <Map />
+      </div>
     </div>
   );
 }
