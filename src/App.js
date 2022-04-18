@@ -4,6 +4,7 @@ import Map from "./components/map";
 import { useEffect, useState } from "react";
 import geo from "./components/utils";
 
+// Check
 function App() {
   const [location, setLocation] = useState();
 
