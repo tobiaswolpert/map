@@ -18,4 +18,9 @@
 .map {
   flex: 1;
   background-color: grey;
+
+  &__container {
+    height: 100%;
+    width: 100%;
+  }
 }

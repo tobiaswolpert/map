@@ -11,7 +11,6 @@ function App() {
     const fetchGeo = async () => {
       const coords = await geo();
       setLocation(coords);
-      console.log(coords);
     };
 
     fetchGeo();
@@ -19,15 +18,9 @@ function App() {
 
   return (
     <div className="App">
-      {location ? (
-        <div>
-          {location.latitude}
-          {location.longitude}
-        </div>
-      ) : null}
       <div className="container">
         <Sidebar />
-        <Map />
+        <Map location={location} />
       </div>
     </div>
   );
