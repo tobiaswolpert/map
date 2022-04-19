@@ -1,12 +1,11 @@
-const geo = () => {
-  return new Promise((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        resolve(pos.coords);
-      },
-      () => reject("could not get the current position")
-    );
-  });
-};
+import { useMap } from "react-leaflet";
 
-export default geo;
+function MapLocation() {
+  const map = useMap({ zoom: 5 });
+  map.locate({ setView: true });
+  console.log("map center", map.getCenter());
+
+  return null;
+}
+
+export default MapLocation;
